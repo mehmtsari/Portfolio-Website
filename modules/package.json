@@ -1,0 +1,14 @@
+{
+  "name": "msari-bootstrap",
+  "version": "1.0.0",
+  "description": "Portfolio website modules",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass --watch ./scss/bootstrap.scss ../bootstrap/css/bootstrap.css"
+  },
+  "author": "Mehmet Sarı",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.2"
+  }
+}
