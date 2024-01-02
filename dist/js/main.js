@@ -26,17 +26,10 @@ function startcircleProgress() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  var nav_items = document.querySelectorAll(".nav-item");
-
-  for (var i = 0; i < nav_items.length; i++) {
-    // 1 saniyeden başlayıp 0.5 saniye artan animasyon geçikmesi
-    var delay = 1 + i * 0.5;
-    nav_items[i].style += "animation-delay: " + delay + "s;";
-  }
 
   window.addEventListener("scroll", reveal);
   function reveal() {
-    // dikey scroll değeri
+    // vertical scroll value
     var reveals = document.querySelectorAll(".reveal");
     for (var i = 0; i < reveals.length; i++) {
       var window_h = window.innerHeight;
@@ -50,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // yatay scroll değeri
+    // horizontal scroll value
     var reveals = document.querySelectorAll(".reveal-left,.reveal-right");
     for (var i = 0; i < reveals.length; i++) {
       var window_h = window.innerHeight;
@@ -68,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // Hakkında kısmı progress bar animasyonu
+  // About container progress bar animation
   window.addEventListener("scroll", function () {
     var window_h = window.innerHeight;
     var progress = document.querySelector(".circle-progress");
@@ -80,7 +74,69 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  $("")
+  
+  //Portfolio container-details animation
+  var portfolio_items = document.querySelectorAll(".portfolio-item");
+  portfolio_items.forEach(portfolio => {
+    var details_btn = portfolio.querySelector(".details-btn");
+    var portfolio_img = portfolio.querySelectorAll(".portfolio-img-left,.portfolio-img-right");
+    var details = portfolio.querySelector(".portfolio-details");
+
+    // details animation
+    details_btn.style.transition = "transform 0.5s ease-in-out";
+
+    details_btn.addEventListener("click", function () {
+      var isActive =  details.classList.toggle("active");
+      
+      if(isActive){
+        details.style.maxHeight = details.scrollHeight + "px";
+        details_btn.style.transform = "rotate(90deg)";
+
+        for (var i = 0; i < portfolio_img.length; i++) {
+          portfolio_img[i].classList.add("active");
+        }
+      }
+      else{
+        details.style.maxHeight = 0 + "px";
+        details_btn.style.transform = "rotate(0deg)";
+
+        for (var i = 0; i < portfolio_img.length; i++) {
+          portfolio_img[i].classList.remove("active");
+        }
+      }
+    });
+
+    // details hover animation
+    portfolio.addEventListener("mouseenter", function () {
+      details.classList.add("active");
+      details.style.maxHeight = details.scrollHeight + "px";
+      details_btn.style.transform = "rotate(90deg)";
+
+      for (var i = 0; i < portfolio_img.length; i++) {
+        portfolio_img[i].classList.add("active");
+      }
+
+    });
+
+    portfolio.addEventListener("mouseleave", function () {
+      details.classList.remove("active");
+      details.style.maxHeight = 0 + "px";
+      details_btn.style.transform = "rotate(0deg)";
+
+      for (var i = 0; i < portfolio_img.length; i++) {
+        portfolio_img[i].classList.remove("active");
+      }
+    });
+
+
+    
+
+
+
+    
+
+
+  });
   
   
 });

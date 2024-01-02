@@ -95,7 +95,7 @@ body {
     border-left: 0;
     -webkit-transform-origin: center left;
     transform-origin: center left;
-    transition: 2s ;
+    transition: 2s;
     
   }
   
@@ -110,7 +110,7 @@ body {
     border-right: 0;
     -webkit-transform-origin: center right;
     transform-origin: center right;
-    transition: 2s ;
+    transition: 2s;
   }
   
   .circle-progress .circle-progress-value {
@@ -407,7 +407,7 @@ h4 {
         left: 85px
     }
 
-    .timeline-container .timeline-main-title {
+    .timeline-main-title {
         text-align: center ;
 
     }
@@ -428,6 +428,72 @@ h4 {
     .main-timeline .timeline-content:after,
     .main-timeline .timeline:nth-child(2n) .timeline-content:after {
         left: 65px
+    }
+}
+
+
+
+/* Portfolio Cards*/
+
+.portfolio-item {
+    background-color: black;
+}
+
+
+
+.portfolio-item .portfolio-img-left,
+.portfolio-item .portfolio-img-right {
+    transition: all 1s ease;
+}
+
+.portfolio-item .portfolio-img-left.active {
+    transform: scale(1.1) translateY(-5%) rotate(-2deg);
+    box-shadow: 60px 60px 60px 0px rgba(0, 0, 0, 0.5);
+}
+
+.portfolio-item .portfolio-img-right.active {
+    transform: scale(1.1) translateY(-5%) rotate(2deg);
+    box-shadow: -60px 60px 60px 0px rgba(0, 0, 0, 0.5);
+}
+
+
+.portfolio-item .portfolio-main {
+    z-index: 100;
+}
+
+.portfolio-item .portfolio-details {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+@media only screen and (max-width: 1024px) {
+    .portfolio-item .mobile {
+        display: block;
+    }
+    .portfolio-item .desktop {
+        display: none;
+    }
+    
+    .portfolio-image-container {
+        text-align: center;
+    }
+
+    .portfolio-image-container img {
+        width: 80%;
+    }
+
+    .portfolio-title {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .portfolio-item .mobile {
+        display: none;
+    }
+    .portfolio-item .desktop {
+        display: block;
     }
 }
 
@@ -530,6 +596,11 @@ h4 {
 .anim-hide {
     animation: hide-animation 1s forwards;
     animation-timeline: view();
+}
+
+.anim-hide-lastcontent {
+    animation: hide-animation 1s forwards;
+    animation-timeline: view(-400px 100px);
 }
 
 .anim-hover {
