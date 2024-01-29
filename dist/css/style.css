@@ -27,8 +27,8 @@ body {
     left: 0;
     width: 100%;
 
-    animation: homeHide 1s forwards;
-    animation-timeline: view();
+    /*animation: homeHide 1s forwards;*/
+    /*animation-timeline: view();*/
 }
 
 .font-roman {
