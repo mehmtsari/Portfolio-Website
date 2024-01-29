@@ -26,10 +26,9 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-
-    /*animation: homeHide 1s forwards;*/
-    /*animation-timeline: view();*/
 }
+
+
 
 .font-roman {
     font-family: 'Times New Roman', Times, serif;
@@ -597,15 +596,9 @@ h4 {
     }
 }
 
-.anim-hide {
-    animation: hide-animation 1s forwards;
-    animation-timeline: view();
-}
 
-.anim-hide-lastcontent {
-    animation: hide-animation 1s forwards;
-    animation-timeline: view(-300px 400px);
-}
+
+
 
 .anim-hover {
     animation: hoverEffect 1s;
@@ -630,11 +623,7 @@ h4 {
 
 /* Text Animations */
 
-.text-anim-homedown {
 
-    animation: text-home-down linear forwards;
-    animation-timeline: view();
-}
 
 @keyframes text-home-down {
 
@@ -646,5 +635,29 @@ h4 {
     85%,
     100% {
         transform: translateY(100px);
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .home {
+        animation: homeHide 1s forwards;
+        animation-timeline: view();
+    }
+
+    .anim-hide {
+        animation: hide-animation 1s forwards;
+        animation-timeline: view();
+    }
+
+    .text-anim-homedown {
+
+        animation: text-home-down linear forwards;
+        animation-timeline: view();
+    }
+
+    .anim-hide-lastcontent {
+        animation: hide-animation 1s forwards;
+        animation-timeline: view(-300px 400px);
     }
 }
